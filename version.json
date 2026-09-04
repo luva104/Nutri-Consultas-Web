@@ -1,9 +1,9 @@
 {
   "product": "Nutri Consultas",
-  "latest": "1.0.0",
+  "latest": "1.0.1",
   "minimum_supported": "1.0.0",
-  "update_available": false,
-  "download_url": "",
-  "release_notes": "Versión comercial en preparación.",
-  "published_at": "2026-09-01"
+  "update_available": true,
+  "download_url": "https://nutri-consultas.luva104.workers.dev/download",
+  "release_notes": "Nuevo comprobador automático de versiones y acceso directo a la descarga de actualizaciones desde la aplicación.",
+  "published_at": "2026-09-04"
 }
