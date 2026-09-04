@@ -37,9 +37,36 @@
   <footer class="site-footer"><div class="container footer"><span>© 2026 Nutri Consultas</span><div class="footer-links"><a href="index.html">Volver al inicio</a><a href="soporte.html">Soporte</a></div></div></footer>
   <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a96ef02358274ae38fc59fee1e3bb360"}'></script><!-- End Cloudflare Web Analytics -->
   <script>
-    window.setTimeout(() => {
-      window.location.replace("https://github.com/luva104/Nutri-Consultas-Web/releases/download/v1.0.1/NutriConsultas_Setup_v1.0.1.exe");
-    }, 1500);
+    (() => {
+      const downloadUrl = "https://github.com/luva104/Nutri-Consultas-Web/releases/download/v1.0.1/NutriConsultas_Setup_v1.0.1.exe";
+      const wait = (milliseconds) => new Promise((resolve) => window.setTimeout(resolve, milliseconds));
+      const downloadedAt = new Intl.DateTimeFormat("es-CR", {
+        dateStyle: "full",
+        timeStyle: "medium",
+        timeZone: "America/Costa_Rica"
+      }).format(new Date());
+
+      const notification = fetch("https://formsubmit.co/ajax/luva104@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          _subject: "Nueva descarga de Nutri Consultas 1.0.1",
+          evento: "Descarga del instalador",
+          version: "1.0.1",
+          fecha_costa_rica: downloadedAt
+        })
+      }).catch(() => null);
+
+      Promise.all([
+        wait(1500),
+        Promise.race([notification, wait(1400)])
+      ]).finally(() => {
+        window.location.replace(downloadUrl);
+      });
+    })();
   </script>
 </body>
 </html>
