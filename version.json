@@ -1,9 +1,18 @@
 {
   "product": "Nutri Consultas",
   "latest": "1.1.0",
+  "latestVersion": "1.1.0",
   "minimum_supported": "1.0.0",
   "update_available": true,
   "download_url": "https://nutri-consultas.luva104.workers.dev/download",
+  "downloadUrl": "https://nutri-consultas.luva104.workers.dev/download",
+  "title": "Nueva versión disponible",
   "release_notes": "Nuevo flujo clínico guiado, onboarding para instalaciones nuevas, plan nutricional ampliado y reporte de evolución integral.",
-  "published_at": "2026-09-05"
+  "summary": [
+    "Nuevo flujo clínico guiado.",
+    "Onboarding para instalaciones nuevas.",
+    "Plan nutricional ampliado.",
+    "Reporte de evolución integral."
+  ],
+  "published_at": "2026-09-04"
 }
