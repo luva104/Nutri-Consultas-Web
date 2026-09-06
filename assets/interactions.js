@@ -5,6 +5,20 @@
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
 
+  const interfaceImage = document.querySelector('.interface-frame img');
+  if (interfaceImage) {
+    const localSrc = 'assets/nutri_consultas_interfaz.webp?v=2';
+    const fallbackSrc = 'https://raw.githubusercontent.com/luva104/Nutri-Consultas-Web/main/assets/nutri_consultas_interfaz.webp';
+
+    interfaceImage.addEventListener('error', () => {
+      if (interfaceImage.dataset.fallbackApplied === 'true') return;
+      interfaceImage.dataset.fallbackApplied = 'true';
+      interfaceImage.src = fallbackSrc;
+    });
+
+    interfaceImage.src = localSrc;
+  }
+
   if (reducedMotion || !('IntersectionObserver' in window)) return;
 
   const groups = [
