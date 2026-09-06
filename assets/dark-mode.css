@@ -1,0 +1,137 @@
+/* Automatic dark mode for Nutri Consultas.
+   Activates only when the device/browser prefers a dark color scheme. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ink: #e8f2ec;
+    --ink-soft: #a9bbb2;
+    --brand: #55b993;
+    --brand-dark: #0e5a46;
+    --accent: #b9dc72;
+    --cream: #15231e;
+    --surface: #17241f;
+    --line: #2b4037;
+    --shadow: 0 18px 50px rgba(0, 0, 0, .28);
+  }
+
+  html, body { background: #0f1714 !important; color: var(--ink); }
+  body { color-scheme: dark; }
+
+  .site-header,
+  .site-header.is-scrolled {
+    background: rgba(15, 23, 20, .94) !important;
+    border-color: rgba(117, 161, 143, .20) !important;
+  }
+
+  .brand,
+  .nav-links a,
+  .footer a { color: #c7d8d0; }
+  .nav-links a:hover,
+  .nav-links a[aria-current="page"] {
+    color: #eff8f3;
+    background: #1b3028;
+  }
+  .nav-links .nav-cta,
+  .nav-links .nav-cta:hover { color: #fff; }
+
+  .hero {
+    background:
+      radial-gradient(circle at 86% 18%, rgba(107, 161, 91, .14), transparent 27%),
+      linear-gradient(145deg, #111c18 0%, #14231d 58%, #19271f 100%) !important;
+  }
+  .hero::after { border-color: rgba(91, 177, 141, .15); }
+  .hero .lead,
+  .muted,
+  .small,
+  .section-heading p,
+  .feature p,
+  .workflow-step span,
+  .page-hero p,
+  .article p,
+  .article li,
+  .support-card p,
+  .interface-note { color: var(--ink-soft) !important; }
+
+  .product-card,
+  .feature,
+  .workflow,
+  .trust-card.light,
+  .article,
+  .support-card,
+  .price-card,
+  .version-card,
+  .interface-frame {
+    background: #17241f !important;
+    border-color: #2b4037 !important;
+    box-shadow: var(--shadow);
+  }
+
+  .product-card::before,
+  .interface-frame::before { border-color: rgba(127, 180, 155, .12); }
+
+  .status,
+  .feature-number,
+  .price-badge {
+    color: #bfe8d6 !important;
+    background: #20362d !important;
+  }
+
+  .btn.secondary {
+    color: #e6f0eb;
+    background: #192721;
+    border-color: #33483f;
+  }
+
+  .section,
+  #funciones,
+  .pricing-section,
+  .page-content { background: #0f1714 !important; }
+  .section-tinted,
+  .interface-showcase {
+    background: #13201b !important;
+    border-color: #293d35 !important;
+  }
+
+  .page-hero {
+    background: linear-gradient(145deg, #111c18, #182820) !important;
+  }
+
+  .trust-card.primary,
+  .side-card,
+  .support-contact,
+  .version-card {
+    color: #f2f8f5;
+    background: #0d503f !important;
+  }
+  .version-card p,
+  .side-card p,
+  .support-contact p { color: rgba(242, 248, 245, .82) !important; }
+
+  .notice {
+    color: #d9e9df;
+    background: #1b2c24;
+    border-left-color: var(--accent);
+  }
+
+  .site-footer {
+    color: var(--ink-soft);
+    background: #101915 !important;
+    border-color: #293d35;
+  }
+
+  .cta-panel {
+    background: linear-gradient(130deg, #0b4537, #176b55);
+  }
+
+  .price-card,
+  .article,
+  .support-card { color: var(--ink); }
+  .price-card p,
+  .included-list span { color: var(--ink-soft) !important; }
+  .version-divider { border-color: rgba(255,255,255,.15) !important; }
+
+  a { text-underline-offset: 2px; }
+
+  /* Keep the product screenshot unchanged: it represents the real app UI. */
+  .interface-frame img { filter: none; }
+}
