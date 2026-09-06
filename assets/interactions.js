@@ -1,4 +1,12 @@
 (() => {
+  if (!document.querySelector('link[data-nutri-dark-mode]')) {
+    const darkModeStylesheet = document.createElement('link');
+    darkModeStylesheet.rel = 'stylesheet';
+    darkModeStylesheet.href = 'assets/dark-mode.css';
+    darkModeStylesheet.dataset.nutriDarkMode = 'true';
+    document.head.appendChild(darkModeStylesheet);
+  }
+
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const header = document.querySelector('.site-header');
   const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 10);
