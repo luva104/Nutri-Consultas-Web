@@ -34,6 +34,19 @@
     if (text) text.textContent = 'Descarga desde el canal oficial de Microsoft y recibe las actualizaciones de Nutri Consultas de forma sencilla.';
   }
 
+  const versionText = document.querySelector('.cta-panel p');
+  if (versionText) {
+    fetch('version.json', { cache: 'no-store' })
+      .then((response) => response.ok ? response.json() : null)
+      .then((data) => {
+        const latest = data?.latestVersion || data?.latest;
+        if (latest) {
+          versionText.textContent = `Versión ${latest} · Windows 10 y 11 de 64 bits · Disponible oficialmente en Microsoft Store.`;
+        }
+      })
+      .catch(() => null);
+  }
+
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const header = document.querySelector('.site-header');
   const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 10);
