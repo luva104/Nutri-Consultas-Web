@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Descarga de Nutri Consultas 1.1.0 para Windows.">
-  <title>Descargando Nutri Consultas 1.1.0</title>
+  <meta name="description" content="Nutri Consultas para Windows, disponible oficialmente en Microsoft Store.">
+  <title>Nutri Consultas — Microsoft Store</title>
   <link rel="icon" href="assets/nutri_consultas.ico">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="stylesheet" href="assets/dark-mode.css">
@@ -20,17 +20,17 @@
     <section class="page-hero">
       <div class="container">
         <span class="eyebrow">Descarga oficial</span>
-        <h1>Preparando tu descarga…</h1>
-        <p>Nutri Consultas 1.1.0 para Windows 10 y 11 de 64 bits. La prueba gratuita dura 15 días.</p>
+        <h1>Abriendo Microsoft Store…</h1>
+        <p>Nutri Consultas está disponible oficialmente para Windows 10 y 11 a través de Microsoft Store. La prueba gratuita dura 15 días.</p>
       </div>
     </section>
     <section class="page-content">
       <div class="container">
         <article class="article">
-          <h2>El instalador comenzará automáticamente.</h2>
-          <p>Si la descarga no inicia en unos segundos, utiliza el botón siguiente.</p>
-          <a class="btn" href="https://github.com/luva104/Nutri-Consultas-Web/releases/download/v1.1.0/NutriConsultas_Setup_v1.1.0.exe">Descargar instalador</a>
-          <p class="small">Archivo: NutriConsultas_Setup_v1.1.0.exe · 14,9 MB</p>
+          <h2>Instala Nutri Consultas desde Microsoft Store.</h2>
+          <p>Si Microsoft Store no se abre automáticamente, utiliza el botón siguiente.</p>
+          <a class="btn" href="https://apps.microsoft.com/detail/9NNQN98VTQLT?hl=neutral&gl=CR&ocid=pdpshare">Obtener en Microsoft Store</a>
+          <p class="small">Distribución, firma y actualizaciones administradas por Microsoft Store.</p>
         </article>
       </div>
     </section>
@@ -38,36 +38,9 @@
   <footer class="site-footer"><div class="container footer"><span>© 2026 Nutri Consultas</span><div class="footer-links"><a href="index.html">Volver al inicio</a><a href="soporte.html">Soporte</a></div></div></footer>
   <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a96ef02358274ae38fc59fee1e3bb360"}'></script><!-- End Cloudflare Web Analytics -->
   <script>
-    (() => {
-      const downloadUrl = "https://github.com/luva104/Nutri-Consultas-Web/releases/download/v1.1.0/NutriConsultas_Setup_v1.1.0.exe";
-      const wait = (milliseconds) => new Promise((resolve) => window.setTimeout(resolve, milliseconds));
-      const downloadedAt = new Intl.DateTimeFormat("es-CR", {
-        dateStyle: "full",
-        timeStyle: "medium",
-        timeZone: "America/Costa_Rica"
-      }).format(new Date());
-
-      const notification = fetch("https://formsubmit.co/ajax/luva104.dev@outlook.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          _subject: "Nueva descarga de Nutri Consultas 1.1.0",
-          evento: "Descarga del instalador",
-          version: "1.1.0",
-          fecha_costa_rica: downloadedAt
-        })
-      }).catch(() => null);
-
-      Promise.all([
-        wait(1500),
-        Promise.race([notification, wait(1400)])
-      ]).finally(() => {
-        window.location.replace(downloadUrl);
-      });
-    })();
+    window.setTimeout(() => {
+      window.location.replace("https://apps.microsoft.com/detail/9NNQN98VTQLT?hl=neutral&gl=CR&ocid=pdpshare");
+    }, 900);
   </script>
 </body>
 </html>
