@@ -7,8 +7,8 @@
 
   const interfaceImage = document.querySelector('.interface-frame img');
   if (interfaceImage) {
-    const localSrc = 'assets/nutri_consultas_interfaz.webp?v=2';
-    const fallbackSrc = 'https://raw.githubusercontent.com/luva104/Nutri-Consultas-Web/main/assets/nutri_consultas_interfaz.webp';
+    const localSrc = 'assets/interfaz.png?v=1';
+    const fallbackSrc = 'https://raw.githubusercontent.com/luva104/Nutri-Consultas-Web/main/assets/interfaz.png';
 
     interfaceImage.addEventListener('error', () => {
       if (interfaceImage.dataset.fallbackApplied === 'true') return;
