@@ -7,6 +7,33 @@
     document.head.appendChild(darkModeStylesheet);
   }
 
+  const storeUrl = 'https://apps.microsoft.com/detail/9NNQN98VTQLT?hl=neutral&gl=CR&ocid=pdpshare';
+
+  const heroLead = document.querySelector('.hero .lead');
+  if (heroLead && !document.querySelector('.store-availability-note')) {
+    const storeNote = document.createElement('p');
+    storeNote.className = 'store-availability-note';
+    storeNote.style.marginTop = '14px';
+    storeNote.style.fontWeight = '600';
+    storeNote.innerHTML = `Disponible oficialmente en <a href="${storeUrl}" target="_blank" rel="noopener noreferrer">Microsoft Store</a> para Windows 10 y 11.`;
+    heroLead.insertAdjacentElement('afterend', storeNote);
+  }
+
+  const productStatus = document.querySelector('.product-card .status');
+  if (productStatus) {
+    productStatus.textContent = 'Disponible oficialmente en Microsoft Store';
+  }
+
+  const installFeature = Array.from(document.querySelectorAll('.feature')).find((feature) =>
+    feature.querySelector('h3')?.textContent.trim() === 'Instalación rápida'
+  );
+  if (installFeature) {
+    const title = installFeature.querySelector('h3');
+    const text = installFeature.querySelector('p');
+    if (title) title.textContent = 'Instalación desde Microsoft Store';
+    if (text) text.textContent = 'Descarga desde el canal oficial de Microsoft y recibe las actualizaciones de Nutri Consultas de forma sencilla.';
+  }
+
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const header = document.querySelector('.site-header');
   const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 10);
