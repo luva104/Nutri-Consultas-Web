@@ -1,16 +1,18 @@
 {
   "product": "Nutri Consultas",
-  "latest": "1.1.1",
-  "latestVersion": "1.1.1",
+  "latest": "1.1.2",
+  "latestVersion": "1.1.2",
   "minimum_supported": "1.0.0",
   "update_available": true,
   "download_url": "https://nutri-consultas.luva104.workers.dev/download",
   "downloadUrl": "https://nutri-consultas.luva104.workers.dev/download",
   "title": "Nueva versión disponible",
-  "release_notes": "Corrección en la visualización de la ubicación física de la base de datos en instalaciones desde Microsoft Store y mejoras menores de mantenimiento.",
+  "release_notes": "Mejoras de continuidad y protección de datos: respaldo automático cifrado al cerrar cuando hay cambios, copias locales persistentes y conservación de la licencia fuera del contenedor de Microsoft Store.",
   "summary": [
-    "Se corrige la visualización de la ubicación física de la base de datos en instalaciones desde Microsoft Store.",
-    "Mejoras menores de compatibilidad y mantenimiento."
+    "Respaldo automático cifrado al cerrar la aplicación cuando existen cambios en la base de datos.",
+    "Copias de respaldo locales persistentes para facilitar la recuperación de la información.",
+    "La licencia activa se conserva fuera del contenedor de Microsoft Store para mejorar la continuidad tras una reinstalación.",
+    "La clave de recuperación de los respaldos permanece bajo responsabilidad del usuario y puede copiarse o importarse desde Configuración."
   ],
   "published_at": "2026-09-06"
 }
