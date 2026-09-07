@@ -76,9 +76,7 @@
     '.trust-card',
     '.cta-panel',
     '.page-hero .container > *',
-    '.support-card',
-    '.article',
-    '.side-card'
+    '.support-card'
   ];
   const elements = document.querySelectorAll(groups.join(','));
   elements.forEach((element, index) => {
@@ -92,7 +90,7 @@
       entry.target.classList.add('is-visible');
       observer.unobserve(entry.target);
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -36px' });
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px' });
 
   elements.forEach((element) => observer.observe(element));
 })();
