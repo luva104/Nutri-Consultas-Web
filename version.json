@@ -1,13 +1,13 @@
 {
   "product": "Nutri Consultas",
-  "latest": "1.5.0.0",
-  "latestVersion": "1.5.0.0",
+  "latest": "1.5.0",
+  "latestVersion": "1.5.0",
   "minimum_supported": "1.0.0",
   "update_available": true,
   "download_url": "https://nutri-consultas.luva104.workers.dev/download",
   "downloadUrl": "https://nutri-consultas.luva104.workers.dev/download",
   "title": "Nueva versión disponible",
-  "release_notes": "Nutri Consultas 1.5.0.0 incorpora plantillas reutilizables para planes nutricionales, mejoras en el onboarding con Google y ajustes de estabilidad para la distribución mediante Microsoft Store.",
+  "release_notes": "Nutri Consultas 1.5.0 incorpora plantillas reutilizables para planes nutricionales, mejoras en el onboarding con Google y ajustes de estabilidad para la distribución mediante Microsoft Store.",
   "summary": [
     "Se agregan plantillas reutilizables para crear planes nutricionales a partir de machotes.",
     "Se corrige el flujo de onboarding para evitar que la conexión con Google sobrescriba el correo profesional.",
