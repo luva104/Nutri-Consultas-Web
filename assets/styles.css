@@ -359,3 +359,32 @@ img { display: block; max-width: 100%; }
   .included-list { grid-template-columns: 1fr; }
   .price-card:hover, .version-card:hover { transform: none; }
 }
+
+/* Keep workflow cards legible when the browser/OS uses a dark color scheme. */
+@media (prefers-color-scheme: dark) {
+  .workflow {
+    background: #14261f;
+    border-color: #294239;
+  }
+  .workflow-step {
+    color: #edf5f1;
+  }
+  .workflow-step span {
+    color: #aebfb8;
+  }
+  .workflow-step:hover,
+  .workflow-step:focus,
+  .workflow-step:active {
+    background: #1d332a;
+  }
+  .workflow-step:hover strong,
+  .workflow-step:focus strong,
+  .workflow-step:active strong {
+    color: #ffffff;
+  }
+  .workflow-step:hover span,
+  .workflow-step:focus span,
+  .workflow-step:active span {
+    color: #c4d2cc;
+  }
+}
