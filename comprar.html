@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Compra una licencia perpetua de Nutri Consultas.">
+  <title>Comprar licencia — Nutri Consultas</title>
+  <link rel="icon" href="assets/nutri_consultas.ico">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .purchase-wrap{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .purchase-card{background:var(--surface,#fff);border:1px solid rgba(23,107,85,.14);border-radius:22px;padding:28px;box-shadow:0 16px 44px rgba(18,70,55,.08)}
+    .purchase-price{font-size:2.4rem;font-weight:800;margin:.35rem 0}.purchase-price small{font-size:1rem;font-weight:600;color:var(--ink-soft)}
+    .purchase-card label{display:block;font-weight:700;margin:14px 0 6px}
+    .purchase-card input,.purchase-card select{width:100%;box-sizing:border-box;padding:12px 13px;border:1px solid rgba(0,0,0,.18);border-radius:10px;background:transparent;color:inherit;font:inherit}
+    .purchase-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.purchase-actions .btn{border:0;cursor:pointer}
+    .purchase-note{font-size:.92rem;color:var(--ink-soft);line-height:1.5}
+    .steps{margin:18px 0 0;padding-left:20px}.steps li{margin:8px 0}
+    @media(max-width:780px){.purchase-wrap{grid-template-columns:1fr}.purchase-card{padding:22px}}
+  </style>
+</head>
+<body>
+<header class="site-header"><div class="container nav"><a class="brand" href="index.html"><img src="assets/nutri_consultas_64x64.png" alt=""><span>Nutri Consultas</span></a><nav class="nav-links" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="index.html#funciones">Funciones</a><a href="index.html#precio">Precio</a><a href="soporte.html">Soporte</a></nav></div></header>
+<main>
+<section class="page-hero"><div class="container"><span class="eyebrow">Licencia perpetua</span><h1>Comprar Nutri Consultas</h1><p>Completa el pago y envíanos los datos del equipo para generar tu licencia.</p></div></section>
+<section class="page-content"><div class="container purchase-wrap">
+  <article class="purchase-card">
+    <span class="eyebrow">Pago único</span>
+    <div class="purchase-price">₡50.000 <small>IVA incluido</small></div>
+    <p>Para pagos internacionales: <strong>US$110</strong>.</p>
+    <ul class="steps">
+      <li>Licencia perpetua para un equipo.</li>
+      <li>12 meses de soporte técnico y actualizaciones menores.</li>
+      <li>Una reactivación incluida por cambio de equipo.</li>
+    </ul>
+    <div class="purchase-actions">
+      <a class="btn" href="https://paypal.me/luvadev" target="_blank" rel="noopener noreferrer">Pagar con PayPal</a>
+    </div>
+    <p class="purchase-note">Después de pagar, anota la referencia o ID de la transacción y completa el formulario. No envíes contraseñas ni datos de tarjeta.</p>
+  </article>
+
+  <article class="purchase-card">
+    <span class="eyebrow">Datos para emitir la licencia</span>
+    <h2>Enviar solicitud</h2>
+    <form id="purchaseForm">
+      <label for="name">Nombre completo</label>
+      <input id="name" name="name" required autocomplete="name">
+
+      <label for="country">País</label>
+      <input id="country" name="country" required autocomplete="country-name" value="Costa Rica">
+
+      <label for="email">Correo electrónico</label>
+      <input id="email" name="email" type="email" required autocomplete="email">
+
+      <label for="machine">ID del equipo</label>
+      <input id="machine" name="machine" required placeholder="Ej. NC-XXXXX-XXXXX-XXXXX-XXXXX">
+
+      <label for="method">Método de pago</label>
+      <select id="method" name="method">
+        <option>PayPal</option>
+        <option>Otro / coordinar pago</option>
+      </select>
+
+      <label for="transaction">Referencia de pago</label>
+      <input id="transaction" name="transaction" placeholder="ID o referencia de la transacción">
+
+      <div class="purchase-actions">
+        <button class="btn" type="submit">Enviar datos de compra</button>
+        <a class="btn secondary" href="mailto:luva104.dev@outlook.com?subject=Consulta%20sobre%20licencia%20Nutri%20Consultas">Tengo una consulta</a>
+      </div>
+    </form>
+    <p class="purchase-note">El formulario abre tu aplicación de correo con los datos preparados para enviarlos a LUVA-DEV. La licencia se genera para el ID de equipo indicado.</p>
+  </article>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container footer"><span>© 2026 Nutri Consultas</span><div class="footer-links"><a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a><a href="licencia.html">Licencia</a><a href="soporte.html">Soporte</a></div></div></footer>
+<script>
+document.getElementById('purchaseForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const subject = 'Compra de licencia - Nutri Consultas';
+  const body = [
+    'Solicitud de licencia Nutri Consultas',
+    '',
+    'Nombre: ' + v('name'),
+    'País: ' + v('country'),
+    'Correo: ' + v('email'),
+    'ID del equipo: ' + v('machine'),
+    'Método de pago: ' + v('method'),
+    'Referencia de pago: ' + (v('transaction') || 'No indicada'),
+    '',
+    'Precio: ₡50.000 IVA incluido / US$110 internacional'
+  ].join('\n');
+  window.location.href = 'mailto:luva104.dev@outlook.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+});
+</script>
+<script src="assets/interactions.js" defer></script>
+<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a96ef02358274ae38fc59fee1e3bb360"}'></script><!-- End Cloudflare Web Analytics -->
+</body></html>
