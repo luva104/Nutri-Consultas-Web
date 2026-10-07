@@ -12,14 +12,23 @@
     .purchase-card{background:var(--surface,#fff);border:1px solid rgba(23,107,85,.14);border-radius:22px;padding:28px;box-shadow:0 16px 44px rgba(18,70,55,.08)}
     .purchase-price{font-size:2.4rem;font-weight:800;margin:.35rem 0}.purchase-price small{font-size:1rem;font-weight:600;color:var(--ink-soft)}
     .purchase-card label{display:block;font-weight:700;margin:14px 0 6px}
-    .purchase-card input,.purchase-card select,.purchase-card textarea{width:100%;box-sizing:border-box;padding:12px 13px;border:1px solid rgba(255,255,255,.22);border-radius:12px;background:rgba(255,255,255,.055);color:inherit;font:inherit;outline:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.025);transition:border-color .18s ease,background .18s ease,box-shadow .18s ease}
-    .purchase-card input::placeholder,.purchase-card textarea::placeholder{color:rgba(255,255,255,.44)}
-    .purchase-card select{color-scheme:dark}
-    .purchase-card select option{background:#172923;color:#f5f7f8}
-    .purchase-card select option:checked{background:#245c4d;color:#fff}
-    .purchase-card input:hover,.purchase-card select:hover,.purchase-card textarea:hover{border-color:rgba(255,255,255,.34);background:rgba(255,255,255,.07)}
-    .purchase-card input:focus,.purchase-card select:focus,.purchase-card textarea:focus{border-color:rgba(117,214,181,.9);background:rgba(255,255,255,.085);box-shadow:0 0 0 3px rgba(117,214,181,.14)}
+    .purchase-card input,.purchase-card select,.purchase-card textarea{width:100%;box-sizing:border-box;padding:12px 13px;border:1px solid #bfd0c8;border-radius:12px;background:#ffffff;color:var(--ink);font:inherit;outline:none;box-shadow:inset 0 1px 2px rgba(18,70,55,.04);transition:border-color .18s ease,background .18s ease,box-shadow .18s ease}
+    .purchase-card input::placeholder,.purchase-card textarea::placeholder{color:#84988f}
+    .purchase-card select{color-scheme:light;background-color:#fff}
+    .purchase-card select option{background:#ffffff;color:#17382f}
+    .purchase-card select option:checked{background:#dcefe7;color:#0d4f3e}
+    .purchase-card input:hover,.purchase-card select:hover,.purchase-card textarea:hover{border-color:#8eb4a5;background:#fbfefd}
+    .purchase-card input:focus,.purchase-card select:focus,.purchase-card textarea:focus{border-color:#39a77f;background:#fff;box-shadow:0 0 0 3px rgba(57,167,127,.14)}
     .purchase-card textarea{min-height:88px;resize:vertical}
+    @media(prefers-color-scheme:dark){
+      .purchase-card input,.purchase-card select,.purchase-card textarea{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.055);color:#f5f7f8;box-shadow:inset 0 1px 0 rgba(255,255,255,.025)}
+      .purchase-card input::placeholder,.purchase-card textarea::placeholder{color:rgba(255,255,255,.44)}
+      .purchase-card select{color-scheme:dark;background-color:rgba(255,255,255,.055)}
+      .purchase-card select option{background:#172923;color:#f5f7f8}
+      .purchase-card select option:checked{background:#245c4d;color:#fff}
+      .purchase-card input:hover,.purchase-card select:hover,.purchase-card textarea:hover{border-color:rgba(255,255,255,.34);background:rgba(255,255,255,.07)}
+      .purchase-card input:focus,.purchase-card select:focus,.purchase-card textarea:focus{border-color:rgba(117,214,181,.9);background:rgba(255,255,255,.085);box-shadow:0 0 0 3px rgba(117,214,181,.14)}
+    }
     .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
     .form-grid .full{grid-column:1/-1}
     .form-section{margin:24px 0 4px;padding-top:18px;border-top:1px solid rgba(23,107,85,.14)}
