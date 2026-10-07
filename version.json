@@ -1,17 +1,19 @@
 {
   "product": "Nutri Consultas",
-  "latest": "1.5.2",
-  "latestVersion": "1.5.2",
+  "latest": "1.5.3",
+  "latestVersion": "1.5.3",
   "minimum_supported": "1.0.0",
   "update_available": true,
   "download_url": "https://nutri-consultas.luva104.workers.dev/download",
   "downloadUrl": "https://nutri-consultas.luva104.workers.dev/download",
   "title": "Nueva versión disponible",
-  "release_notes": "Nutri Consultas 1.5.2 es una actualización correctiva con mejoras de estabilidad y ajustes menores sobre la versión 1.5.1.",
+  "release_notes": "Nutri Consultas 1.5.3 incorpora planes nutricionales semanales, plantillas semanales, mejoras de PDF y el manual actualizado.",
   "summary": [
-    "Correcciones y ajustes de estabilidad.",
-    "Mejoras menores de funcionamiento y validación.",
-    "Distribución y actualizaciones mediante Microsoft Store."
+    "Nuevo plan nutricional semanal de lunes a domingo, además del plan general.",
+    "Plantillas compatibles con planes generales y semanales.",
+    "Mejoras en PDF, impresión y lectura fácil con soporte Unicode.",
+    "Manual del usuario actualizado e integrado en la aplicación.",
+    "Migración automática de la base de datos conservando los planes existentes."
   ],
   "published_at": "2026-10-07"
 }
