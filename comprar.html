@@ -12,7 +12,14 @@
     .purchase-card{background:var(--surface,#fff);border:1px solid rgba(23,107,85,.14);border-radius:22px;padding:28px;box-shadow:0 16px 44px rgba(18,70,55,.08)}
     .purchase-price{font-size:2.4rem;font-weight:800;margin:.35rem 0}.purchase-price small{font-size:1rem;font-weight:600;color:var(--ink-soft)}
     .purchase-card label{display:block;font-weight:700;margin:14px 0 6px}
-    .purchase-card input,.purchase-card select{width:100%;box-sizing:border-box;padding:12px 13px;border:1px solid rgba(0,0,0,.18);border-radius:10px;background:transparent;color:inherit;font:inherit}
+    .purchase-card input,.purchase-card select,.purchase-card textarea{width:100%;box-sizing:border-box;padding:12px 13px;border:1px solid rgba(0,0,0,.18);border-radius:10px;background:transparent;color:inherit;font:inherit}
+    .purchase-card textarea{min-height:88px;resize:vertical}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+    .form-grid .full{grid-column:1/-1}
+    .form-section{margin:24px 0 4px;padding-top:18px;border-top:1px solid rgba(23,107,85,.14)}
+    .form-section h3{margin:0 0 4px;font-size:1.05rem}
+    .form-section p{margin:0 0 8px;color:var(--ink-soft);font-size:.9rem}
+    .foreign-fields[hidden],.cr-fields[hidden]{display:none}
     .purchase-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.purchase-actions .btn{border:0;cursor:pointer}
     .purchase-note{font-size:.92rem;color:var(--ink-soft);line-height:1.5}
     .steps{margin:18px 0 0;padding-left:20px}.steps li{margin:8px 0}
@@ -40,17 +47,100 @@
   </article>
 
   <article class="purchase-card">
-    <span class="eyebrow">Datos para emitir la licencia</span>
+    <span class="eyebrow">Compra y facturación</span>
     <h2>Enviar solicitud</h2>
     <form id="purchaseForm">
-      <label for="name">Nombre completo</label>
-      <input id="name" name="name" required autocomplete="name">
+      <div class="form-section" style="margin-top:8px;padding-top:0;border-top:0">
+        <h3>Datos del receptor</h3>
+        <p>Estos datos se utilizarán para emitir el comprobante electrónico.</p>
+      </div>
 
-      <label for="country">País</label>
-      <input id="country" name="country" required autocomplete="country-name" value="Costa Rica">
+      <div class="form-grid">
+        <div>
+          <label for="idType">Tipo de identificación</label>
+          <select id="idType" name="idType" required>
+            <option value="">Seleccionar</option>
+            <option>Cédula física</option>
+            <option>Cédula jurídica</option>
+            <option>DIMEX</option>
+            <option>NITE</option>
+            <option>Identificación extranjera</option>
+          </select>
+        </div>
+        <div>
+          <label for="identification">Nº de identificación</label>
+          <input id="identification" name="identification" required autocomplete="off">
+        </div>
 
-      <label for="email">Correo electrónico</label>
-      <input id="email" name="email" type="email" required autocomplete="email">
+        <div class="full">
+          <label for="name">Nombre y apellidos o Razón social</label>
+          <input id="name" name="name" required autocomplete="name">
+        </div>
+
+        <div class="full">
+          <label for="commercialName">Nombre comercial <span class="muted">(opcional)</span></label>
+          <input id="commercialName" name="commercialName">
+        </div>
+
+        <div class="full">
+          <label for="country">País</label>
+          <input id="country" name="country" required autocomplete="country-name" value="Costa Rica">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3>Dirección fiscal</h3>
+        <p>Para Costa Rica completa provincia, cantón y distrito. Para clientes del exterior utiliza la dirección extranjera.</p>
+      </div>
+
+      <div class="cr-fields" id="crFields">
+        <div class="form-grid">
+          <div>
+            <label for="province">Provincia</label>
+            <input id="province" name="province" autocomplete="address-level1">
+          </div>
+          <div>
+            <label for="canton">Cantón</label>
+            <input id="canton" name="canton" autocomplete="address-level2">
+          </div>
+          <div>
+            <label for="district">Distrito</label>
+            <input id="district" name="district" autocomplete="address-level3">
+          </div>
+          <div>
+            <label for="neighborhood">Barrio <span class="muted">(opcional)</span></label>
+            <input id="neighborhood" name="neighborhood">
+          </div>
+          <div class="full">
+            <label for="address">Otras señas</label>
+            <textarea id="address" name="address" autocomplete="street-address"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="foreign-fields" id="foreignFields" hidden>
+        <label for="foreignAddress">Otras señas extranjeras</label>
+        <textarea id="foreignAddress" name="foreignAddress" placeholder="Dirección completa en el país del comprador"></textarea>
+      </div>
+
+      <div class="form-section">
+        <h3>Datos de contacto</h3>
+      </div>
+
+      <div class="form-grid">
+        <div>
+          <label for="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" required autocomplete="email">
+        </div>
+        <div>
+          <label for="phone">Teléfono <span class="muted">(opcional)</span></label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3>Datos de la licencia y pago</h3>
+      </div>
 
       <label for="machine">ID del equipo</label>
       <input id="machine" name="machine" required placeholder="Ej. NC-XXXXX-XXXXX-XXXXX-XXXXX">
@@ -58,6 +148,7 @@
       <label for="method">Método de pago</label>
       <select id="method" name="method">
         <option>PayPal</option>
+        <option>SINPE Móvil</option>
         <option>Otro / coordinar pago</option>
       </select>
 
@@ -69,28 +160,65 @@
         <a class="btn secondary" href="mailto:luva104.dev@outlook.com?subject=Consulta%20sobre%20licencia%20Nutri%20Consultas">Tengo una consulta</a>
       </div>
     </form>
-    <p class="purchase-note">El formulario abre tu aplicación de correo con los datos preparados para enviarlos a LUVA-DEV. La licencia se genera para el ID de equipo indicado.</p>
+    <p class="purchase-note">El formulario prepara un correo con los datos de compra, facturación y del equipo para enviarlos a LUVA-DEV. No envíes contraseñas ni datos de tarjeta.</p>
   </article>
 </div></section>
 </main>
 <footer class="site-footer"><div class="container footer"><span>© 2026 Nutri Consultas</span><div class="footer-links"><a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a><a href="licencia.html">Licencia</a><a href="soporte.html">Soporte</a></div></div></footer>
 <script>
+const countryInput = document.getElementById('country');
+const crFields = document.getElementById('crFields');
+const foreignFields = document.getElementById('foreignFields');
+
+function updateAddressFields(){
+  const country = countryInput.value.trim().toLowerCase();
+  const isCR = country === 'costa rica' || country === 'cr';
+  crFields.hidden = !isCR;
+  foreignFields.hidden = isCR;
+
+  ['province','canton','district','address'].forEach(id => {
+    document.getElementById(id).required = isCR;
+  });
+  document.getElementById('foreignAddress').required = !isCR;
+}
+countryInput.addEventListener('input', updateAddressFields);
+countryInput.addEventListener('change', updateAddressFields);
+updateAddressFields();
+
 document.getElementById('purchaseForm').addEventListener('submit', function(e){
   e.preventDefault();
   const v = id => document.getElementById(id).value.trim();
+  const country = v('country');
+  const isCR = country.toLowerCase() === 'costa rica' || country.toLowerCase() === 'cr';
   const subject = 'Compra de licencia - Nutri Consultas';
   const body = [
     'Solicitud de licencia Nutri Consultas',
     '',
-    'Nombre: ' + v('name'),
-    'País: ' + v('country'),
+    '--- DATOS DE FACTURACIÓN ---',
+    'Tipo de identificación: ' + v('idType'),
+    'Nº de identificación: ' + v('identification'),
+    'Nombre / Razón social: ' + v('name'),
+    'Nombre comercial: ' + (v('commercialName') || 'No indicado'),
+    'País: ' + country,
+    '',
+    '--- DIRECCIÓN FISCAL ---',
+    isCR ? 'Provincia: ' + v('province') : 'Dirección extranjera: ' + v('foreignAddress'),
+    isCR ? 'Cantón: ' + v('canton') : '',
+    isCR ? 'Distrito: ' + v('district') : '',
+    isCR ? 'Barrio: ' + (v('neighborhood') || 'No indicado') : '',
+    isCR ? 'Otras señas: ' + v('address') : '',
+    '',
+    '--- CONTACTO ---',
     'Correo: ' + v('email'),
+    'Teléfono: ' + (v('phone') || 'No indicado'),
+    '',
+    '--- LICENCIA Y PAGO ---',
     'ID del equipo: ' + v('machine'),
     'Método de pago: ' + v('method'),
     'Referencia de pago: ' + (v('transaction') || 'No indicada'),
     '',
     'Precio: ₡50.000 IVA incluido / US$110 internacional'
-  ].join('\n');
+  ].filter(Boolean).join('\n');
   window.location.href = 'mailto:luva104.dev@outlook.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 });
 </script>
