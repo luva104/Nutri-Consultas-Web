@@ -37,6 +37,13 @@
     .foreign-fields[hidden],.cr-fields[hidden]{display:none}
     .purchase-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.purchase-actions .btn{border:0;cursor:pointer}
     .purchase-note{font-size:.92rem;color:var(--ink-soft);line-height:1.5}
+    .sinpe-dialog{width:min(440px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;box-sizing:border-box;padding:28px;border:1px solid rgba(23,107,85,.22);border-radius:22px;background:var(--surface,#fff);color:var(--ink);box-shadow:0 24px 90px rgba(0,0,0,.3)}
+    .sinpe-dialog::backdrop{background:rgba(5,20,16,.72)}
+    .sinpe-dialog h2{margin:0 0 12px}.sinpe-dialog .sinpe-number{font-size:2rem;font-weight:800;letter-spacing:.02em;margin:12px 0 4px}
+    .sinpe-dialog .sinpe-holder{font-weight:650;margin-bottom:14px}
+    .sinpe-dialog .purchase-actions{justify-content:flex-start}.sinpe-dialog button{cursor:pointer}
+    .sinpe-copy-status{min-height:1.5em;font-size:.88rem;color:var(--ink-soft)}
+    @media(prefers-color-scheme:dark){.sinpe-dialog{background:#1b2621;color:#f4f7f5}}
     .steps{margin:18px 0 0;padding-left:20px}.steps li{margin:8px 0}
     @media(max-width:780px){.purchase-wrap{grid-template-columns:1fr}.purchase-card{padding:22px}}
   </style>
@@ -57,12 +64,7 @@
     </ul>
     <div class="purchase-actions">
       <a class="btn" href="https://paypal.me/luvadev" target="_blank" rel="noopener noreferrer">Pagar con PayPal</a>
-    </div>
-    <div style="margin-top:18px;padding:16px 18px;border:1px solid rgba(23,107,85,.14);border-radius:14px;background:rgba(23,107,85,.04)">
-      <strong style="display:block;margin-bottom:6px">Pagar por SINPE Móvil</strong>
-      <div style="font-size:1.25rem;font-weight:800">8927-6956</div>
-      <div style="margin-top:4px">Luis Guillermo Vargas Matarrita</div>
-      <div class="purchase-note" style="margin-top:8px">Monto: ₡50.000 IVA incluido. Después de realizar el SINPE, indica la referencia del pago en el formulario.</div>
+      <button class="btn secondary" type="button" id="openSinpe">Pagar con SINPE Móvil</button>
     </div>
     <p class="purchase-note">Después de pagar, anota la referencia o ID de la transacción y completa el formulario. No envíes contraseñas ni datos de tarjeta.</p>
     <p class="purchase-note"><strong>Se emitirá factura electrónica</strong> con los datos suministrados en el formulario.</p>
@@ -188,8 +190,40 @@
   </article>
 </div></section>
 </main>
+<dialog id="sinpeDialog" class="sinpe-dialog" aria-labelledby="sinpeTitle">
+  <h2 id="sinpeTitle">Pagar con SINPE Móvil</h2>
+  <p class="purchase-note">Realiza la transferencia desde la aplicación de tu banco con estos datos:</p>
+  <div class="sinpe-number">8927-6956</div>
+  <div class="sinpe-holder">Luis Guillermo Vargas Matarrita</div>
+  <p><strong>Monto: ₡50.000</strong> (IVA incluido)</p>
+  <div class="purchase-actions">
+    <button class="btn" type="button" id="copySinpe">Copiar número</button>
+    <button class="btn secondary" type="button" id="closeSinpe">Cerrar</button>
+  </div>
+  <div class="sinpe-copy-status" id="sinpeCopyStatus" role="status" aria-live="polite"></div>
+  <p class="purchase-note">Después de pagar, completa el formulario de compra e indica la referencia de la transferencia. La licencia se emite una vez confirmado el pago.</p>
+</dialog>
 <footer class="site-footer"><div class="container footer"><span>© 2026 Nutri Consultas</span><div class="footer-links"><a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a><a href="licencia.html">Licencia</a><a href="soporte.html">Soporte</a></div></div></footer>
 <script>
+const sinpeDialog = document.getElementById('sinpeDialog');
+document.getElementById('openSinpe').addEventListener('click', () => {
+  document.getElementById('method').value = 'SINPE Móvil';
+  document.getElementById('sinpeCopyStatus').textContent = '';
+  sinpeDialog.showModal();
+});
+document.getElementById('closeSinpe').addEventListener('click', () => sinpeDialog.close());
+sinpeDialog.addEventListener('click', e => {
+  if (e.target === sinpeDialog) sinpeDialog.close();
+});
+document.getElementById('copySinpe').addEventListener('click', async () => {
+  const status = document.getElementById('sinpeCopyStatus');
+  try {
+    await navigator.clipboard.writeText('89276956');
+    status.textContent = 'Número copiado.';
+  } catch {
+    status.textContent = 'No se pudo copiar automáticamente. Puedes seleccionar el número mostrado.';
+  }
+});
 const countryInput = document.getElementById('country');
 const crFields = document.getElementById('crFields');
 const foreignFields = document.getElementById('foreignFields');
