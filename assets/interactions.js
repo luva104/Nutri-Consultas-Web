@@ -7,7 +7,7 @@
     document.head.appendChild(darkModeStylesheet);
   }
 
-  const storeUrl = 'https://apps.microsoft.com/detail/9NNQN98VTQLT?hl=neutral&gl=CR&ocid=pdpshare';
+  const storeUrl = 'download.html';
 
   const heroLead = document.querySelector('.hero .lead');
   if (heroLead && !document.querySelector('.store-availability-note')) {
