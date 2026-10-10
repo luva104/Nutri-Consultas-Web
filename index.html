@@ -32,6 +32,8 @@
     .interface-note { margin: 18px auto 0; max-width: 820px; text-align: center; color: var(--ink-soft); font-size: .96rem; }
     .price-usd { display: inline-block; margin-left: 1rem; font-size: .25em; font-weight: 600; color: var(--ink-soft); white-space: nowrap; vertical-align: baseline; transform: translateY(.52em); letter-spacing: .01em; }
     .store-badge-wrap { display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+    .pricing-layout { grid-template-columns: minmax(0, 1fr); }
+    .pricing-layout, .license-details-section .container, #prueba .container { max-width: 900px; margin-inline: auto; }
     ms-store-badge::part(img) { width: 210px; max-width: 100%; height: auto; }
     @media (max-width: 680px) {
       .interface-showcase { padding: 52px 0 58px; }
@@ -133,6 +135,16 @@
             </ul>
             <a class="btn price-action" href="comprar.html">Comprar licencia</a>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="prueba">
+      <div class="container"><div class="cta-panel"><div><h2>Prueba Nutri Consultas durante 15 días.</h2><p>Versión 1.5.3 · Windows 10 y 11 de 64 bits · Disponible oficialmente en Microsoft Store.</p></div><div class="store-badge-wrap" style="position:relative"><ms-store-badge productid="9NNQN98VTQLT" productname="Nutri Consultas" window-mode="direct" theme="auto" aria-hidden="true"></ms-store-badge><a href="download.html" aria-label="Obtener Nutri Consultas en Microsoft Store" style="position:absolute;inset:0;z-index:2;border-radius:8px"></a></div></div></div>
+    </section>
+
+    <section class="section license-details-section" aria-label="Condiciones de licencia y futuras versiones">
+      <div class="container">
           <aside class="version-card">
             <span class="eyebrow">Pensando a futuro</span>
             <h3>¿Qué ocurre después de los 12 meses?</h3>
@@ -142,12 +154,7 @@
             <p>Futuras versiones como Nutri Consultas 2.0 se ofrecerán por separado. Los clientes existentes tendrán un <strong>precio preferencial</strong> para actualizar si desean hacerlo.</p>
             <a href="terminos.html#actualizaciones">Consultar términos de licencia →</a>
           </aside>
-        </div>
       </div>
-    </section>
-
-    <section class="section section-tinted" id="prueba">
-      <div class="container"><div class="cta-panel"><div><h2>Prueba Nutri Consultas durante 15 días.</h2><p>Versión 1.5.2 · Windows 10 y 11 de 64 bits · Disponible oficialmente en Microsoft Store.</p></div><div class="store-badge-wrap" style="position:relative"><ms-store-badge productid="9NNQN98VTQLT" productname="Nutri Consultas" window-mode="direct" theme="auto" aria-hidden="true"></ms-store-badge><a href="download.html" aria-label="Obtener Nutri Consultas en Microsoft Store" style="position:absolute;inset:0;z-index:2;border-radius:8px"></a></div></div></div>
     </section>
   </main>
 
